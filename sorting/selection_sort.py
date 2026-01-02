@@ -1,5 +1,5 @@
 # Selection Sort Implementation in Python
-# Use "python selection_sort.py" in the terminal to run this code
+# Use "python sorting/selection_sort.py" in the terminal to run this code
 
 arr = [2, 5, 3, 1, 4, 8, 7, 6, 10, 9]
 

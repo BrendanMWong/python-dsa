@@ -1,5 +1,5 @@
 # Insertion Sort Implementation in Python
-# Use "python insertion_sort.py" in the terminal to run this code
+# Use "python sorting/insertion_sort.py" in the terminal to run this code
 
 arr = [3, 5, 4, 1, 2, 8, 7, 6, 10, 9]
 

@@ -1,5 +1,5 @@
 # Bubble Sort Implementation in Python
-# Use "python bubble_sort.py" in the terminal to run this code
+# Use "python sorting/bubble_sort.py" in the terminal to run this code
 
 arr = [4, 2, 3, 1, 5, 7, 6, 9, 8, 0, 12, 11, 10, 14, 13]
 
