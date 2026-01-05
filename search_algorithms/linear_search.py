@@ -15,7 +15,6 @@ else:
 
 # Linear Search Algorithm With Index
 arr2 = [7, 2, 9, 1, 6]
-found = False
 found_index = None
 
 print("With index linear search")
@@ -23,11 +22,10 @@ target_value2 = int(input("Enter a value to search for: "))
 
 for index in range(len(arr2)):
     if arr2[index] == target_value2:
-        found = True
         found_index = index
         break
 
-if found:
+if found_index is not None:
     print("Value found at index", found_index)
-if not found:
+else:
     print("Value not found")
