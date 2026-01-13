@@ -4,7 +4,7 @@ A collection of Python implementations of common data structures and algorithms,
 
 ## Time Complexity
 
-For these tables, operations are based on the intended use of the data structure. 
+For these tables, operations are based on the intended use of the data structure. Access is N/A for data structures that don't support indexing. 
 
 | Data Structure     | Access (Avg) | Access (Worst) | Search (Avg) | Search (Worst) | Insert (Avg) | Insert (Worst) | Delete (Avg) | Delete (Worst) |
 | ------------------ | ------------ | -------------- | ------------ | -------------- | ------------ | -------------- | ------------ | -------------- |
@@ -34,5 +34,126 @@ For these tables, operations are based on the intended use of the data structure
 | Merge Sort          | O(n log n)| O(n log n)   | O(n log n) | O(n)           |
 | Quick Sort          | O(n log n)| O(n log n)   | O(n²)      | O(log n)       |
 
+## Data Structure Time Complexity Explanations
 
+### Array / List
+- **Access (Avg/Worst) O(1):** Indexing jumps directly to the memory address.
+- **Search (Avg/Worst) O(n):** Elements must be checked sequentially.
+- **Insert (Avg/Worst) O(n):** Elements may need to be shifted.
+- **Delete (Avg/Worst) O(n):** Removing an element shifts following items.
 
+---
+
+### Linked List
+- **Search (Avg/Worst) O(n):** Nodes must be traversed one by one.
+- **Insert (Avg/Worst) O(1):** Pointer updates take constant time.
+- **Delete (Avg/Worst) O(1):** Node removal only changes links.
+
+---
+
+### Stack
+- **Search (Avg/Worst) O(n):** Elements must be popped to inspect.
+- **Insert (Avg/Worst) O(1):** Push adds to the top.
+- **Delete (Avg/Worst) O(1):** Pop removes the top element.
+
+---
+
+### Queue
+- **Search (Avg/Worst) O(n):** Elements must be dequeued to inspect.
+- **Insert (Avg/Worst) O(1):** Enqueue adds to the rear.
+- **Delete (Avg/Worst) O(1):** Dequeue removes from the front.
+
+---
+
+### Deque
+- **Search (Avg/Worst) O(n):** Elements must be traversed.
+- **Insert (Avg/Worst) O(1):** Items can be added at either end.
+- **Delete (Avg/Worst) O(1):** Items can be removed at either end.
+
+---
+
+### String
+- **Access (Avg/Worst) O(1):** Characters are indexable.
+- **Search (Avg/Worst) O(n):** Characters must be scanned.
+- **Insert (Avg/Worst) O(n):** A new string must be created.
+- **Delete (Avg/Worst) O(n):** Characters are copied or shifted.
+
+---
+
+### Hash Table (Dictionary)
+- **Access (Avg) O(1):** Hashing locates the bucket quickly.
+- **Access (Worst) O(n):** All keys collide into one bucket.
+- **Search (Avg) O(1):** Hash lookup is constant time.
+- **Search (Worst) O(n):** Collision chains must be scanned.
+- **Insert (Avg) O(1):** Key is placed using its hash.
+- **Insert (Worst) O(n):** Rehashing or collisions degrade performance.
+- **Delete (Avg) O(1):** Key is found via hashing.
+- **Delete (Worst) O(n):** Collision chains must be searched.
+
+---
+
+### Hash Set
+- **Access (Avg) O(1):** Hashing locates the element.
+- **Access (Worst) O(n):** All elements collide.
+- **Search (Avg) O(1):** Hash lookup is constant.
+- **Search (Worst) O(n):** Collisions force linear scan.
+- **Insert (Avg) O(1):** Element is hashed and placed.
+- **Insert (Worst) O(n):** Rehashing or collisions occur.
+- **Delete (Avg) O(1):** Element is hash-located.
+- **Delete (Worst) O(n):** Collision resolution is required.
+
+---
+
+### Binary Tree (Unordered)
+- **Search (Avg/Worst) O(n):** Tree may require full traversal.
+- **Insert (Avg/Worst) O(n):** Finding a position takes traversal.
+- **Delete (Avg/Worst) O(n):** Node must be located first.
+
+---
+
+### Binary Search Tree (Unbalanced)
+- **Search (Avg) O(log n):** Tree height is logarithmic on average.
+- **Search (Worst) O(n):** Tree can become skewed.
+- **Insert (Avg) O(log n):** Insert follows search path.
+- **Insert (Worst) O(n):** Skewed tree degrades height.
+- **Delete (Avg) O(log n):** Node removal follows search path.
+- **Delete (Worst) O(n):** Re-linking in a skewed tree is linear.
+
+---
+
+### AVL Tree
+- **Search (Avg/Worst) O(log n):** Tree is always height-balanced.
+- **Insert (Avg/Worst) O(log n):** Rotations maintain balance.
+- **Delete (Avg/Worst) O(log n):** Rebalancing preserves height.
+
+---
+
+### Red-Black Tree
+- **Search (Avg/Worst) O(log n):** Height is bounded by rules.
+- **Insert (Avg/Worst) O(log n):** Recoloring and rotations apply.
+- **Delete (Avg/Worst) O(log n):** Properties are restored after removal.
+
+---
+
+### Heap
+- **Access (Avg/Worst) O(1):** Root element is directly accessible.
+- **Search (Avg/Worst) O(n):** Heap is not globally ordered.
+- **Insert (Avg/Worst) O(log n):** Element bubbles up.
+- **Delete (Avg/Worst) O(log n):** Heapify restores structure.
+
+---
+
+### Trie
+- **L = String length**
+- **Search (Avg/Worst) O(L):** Each character is visited once.
+- **Insert (Avg/Worst) O(L):** Nodes are added per character.
+- **Delete (Avg/Worst) O(L):** Characters are removed sequentially.
+
+---
+
+### Graph
+- **V = Number of graph vertices**
+- **E = Number of graph edges**
+- **Search (Avg/Worst) O(V + E):** Traversal visits all vertices and edges.
+- **Insert (Avg/Worst) O(1):** Nodes or edges are added directly.
+- **Delete (Avg/Worst) O(V + E):** Related edges must be removed.
