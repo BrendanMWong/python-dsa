@@ -4,6 +4,14 @@ A collection of Python implementations of common data structures and algorithms,
 
 ## Time Complexity
 
+For this repository:
+
+Access: access by position or arbitrary element unless the structure explicitly defines access.
+
+For stack, queue, and deque access, time complexity is based on valid ends only.
+
+Heap access is explicitly defined as the root, time complexity is not based on accessing an element deeper in the tree.
+
 | Data Structure | Access (Avg) | Access (Worst) | Search (Avg) | Search (Worst) | Insert (Avg) | Insert (Worst) | Delete (Avg) | Delete (Worst) |
 |---------------|--------------|----------------|--------------|----------------|--------------|----------------|--------------|----------------|
 | Array / List  | O(1)         | O(1)           | O(n)         | O(n)           | O(n)         | O(n)           | O(n)         | O(n)           |
@@ -15,12 +23,12 @@ A collection of Python implementations of common data structures and algorithms,
 | Hash Table (Dict) | O(1)     | O(n)           | O(1)         | O(n)           | O(1)         | O(n)           | O(1)         | O(n)           |
 | Hash Set      | O(1)         | O(n)           | O(1)         | O(n)           | O(1)         | O(n)           | O(1)         | O(n)           |
 | Binary Tree   | O(n)         | O(n)           | O(n)         | O(n)           | O(n)         | O(n)           | O(n)         | O(n)           |
-| Binary Search Tree | O(log n) | O(n)          | O(log n)     | O(n)           | O(log n)     | O(n)           | O(log n)     | O(n)           |
+| Binary Search Tree | O(n)    | O(n)           | O(log n)     | O(n)           | O(log n)     | O(n)           | O(log n)     | O(n)           |
 | AVL Tree      | O(log n)     | O(log n)       | O(log n)     | O(log n)       | O(log n)     | O(log n)       | O(log n)     | O(log n)       |
 | Red-Black Tree| O(log n)     | O(log n)       | O(log n)     | O(log n)       | O(log n)     | O(log n)       | O(log n)     | O(log n)       |
 | Heap          | O(1)         | O(1)           | O(n)         | O(n)           | O(log n)     | O(log n)       | O(log n)     | O(log n)       |
 | Trie          | O(L)         | O(L)           | O(L)         | O(L)           | O(L)         | O(L)           | O(L)         | O(L)           |
-| Graph         | O(1)         | O(1)           | O(V + E)     | O(V + E)       | O(1)         | O(1)           | O(1)         | O(1)           |
+| Graph         | O(1)         | O(1)           | O(V + E)     | O(V + E)       | O(1)         | O(1)           | O(V + E)     | O(V + E)       |
 
 | Algorithm           | Best Case | Average Case | Worst Case | Space Complexity |
 |--------------------|-----------|--------------|------------|----------------|
@@ -31,4 +39,5 @@ A collection of Python implementations of common data structures and algorithms,
 | Insertion Sort      | O(n)      | O(n²)        | O(n²)      | O(1)           |
 | Merge Sort          | O(n log n)| O(n log n)   | O(n log n) | O(n)           |
 | Quick Sort          | O(n log n)| O(n log n)   | O(n²)      | O(log n)       |
+
 
