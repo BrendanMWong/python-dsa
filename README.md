@@ -157,3 +157,59 @@ For these tables, operations are based on the intended use of the data structure
 - **Search (Avg/Worst) O(V + E):** Traversal visits all vertices and edges.
 - **Insert (Avg/Worst) O(1):** Nodes or edges are added directly.
 - **Delete (Avg/Worst) O(V + E):** Related edges must be removed.
+
+## Algorithm Time Complexity Explanations
+
+### Linear Search
+- **Best O(1):** Target is found at the first element.
+- **Average O(n):** Elements are checked sequentially.
+- **Worst O(n):** Target is last or not present.
+- **Space O(1):** Uses a constant amount of extra memory.
+
+---
+
+### Binary Search
+- **Best O(1):** Target is found at the middle immediately.
+- **Average O(log n):** Search space halves each step.
+- **Worst O(log n):** All divisions are required.
+- **Space O(1):** Uses constant extra space.
+
+---
+
+### Bubble Sort
+- **Best O(n):** Array is already sorted.
+- **Average O(n²):** Adjacent elements are repeatedly swapped.
+- **Worst O(n²):** Array is reverse sorted.
+- **Space O(1):** Sorting is done in place.
+
+---
+
+### Selection Sort
+- **Best O(n²):** Minimum search still scans entire array.
+- **Average O(n²):** Repeated full scans are required.
+- **Worst O(n²):** Behavior is consistent regardless of order.
+- **Space O(1):** Sorting is done in place.
+
+---
+
+### Insertion Sort
+- **Best O(n):** Array is already sorted.
+- **Average O(n²):** Elements shift to make room.
+- **Worst O(n²):** Array is reverse sorted.
+- **Space O(1):** Sorting occurs in place.
+
+---
+
+### Merge Sort
+- **Best O(n log n):** Array is always divided and merged.
+- **Average O(n log n):** Consistent divide-and-conquer behavior.
+- **Worst O(n log n):** Performance does not degrade.
+- **Space O(n):** Extra arrays are required for merging.
+
+---
+
+### Quick Sort
+- **Best O(n log n):** Pivot splits array evenly.
+- **Average O(n log n):** Random pivots balance partitions.
+- **Worst O(n²):** Poor pivot choice creates skewed partitions.
+- **Space O(log n):** Recursive call stack grows with depth.
