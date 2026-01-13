@@ -2,6 +2,12 @@
 
 A collection of Python implementations of common data structures and algorithms, organized by category for reference.
 
+## Table of Contents
+
+- [Time Complexity Tables](#time-complexity)
+- [Data Structure Explanations](#data-structure-time-complexity-explanations)
+- [Algorithm Explanations](#algorithm-time-complexity-explanations)
+
 ## Time Complexity
 
 For these tables, operations are based on the intended use of the data structure. Access is N/A for data structures that don't support indexing. 
@@ -213,3 +219,4 @@ For these tables, operations are based on the intended use of the data structure
 - **Average O(n log n):** Random pivots balance partitions.
 - **Worst O(n²):** Poor pivot choice creates skewed partitions.
 - **Space O(log n):** Recursive call stack grows with depth.
+
