@@ -1,14 +1,14 @@
-# Level-order (Breadth-First) Traversal of a Binary Search Tree in Python
-# Use "python tree_traversals/levelorder_traversal.py" to run this code
+# In-order Traversal of a Binary Search Tree in Python
+# Use "python tree_data_structures/tree_traversals/inorder_traversal.py" to run this code
 
-from collections import deque
-
+# Node class for BST
 class Node:
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
 
+# BST class with insert method
 class BST:
     def __init__(self):
         self.root = None
@@ -30,24 +30,19 @@ class BST:
                     return
                 current = current.right
 
-    # Level-order traversal using a queue
-    def levelorder(self, node):
+    # In-order traversal: left → root → right
+    def inorder(self, node):
         if node is None:
             return
-        queue = deque()
-        queue.append(node)
-        while queue:
-            current = queue.popleft()
-            print(current.value)
-            if current.left:
-                queue.append(current.left)
-            if current.right:
-                queue.append(current.right)
+        self.inorder(node.left)
+        print(node.value)
+        self.inorder(node.right)
 
 
+# Example usage
 bst = BST()
 for value in [10, 5, 15, 3, 7, 12, 18]:
     bst.insert(value)
 
-print("Level-order traversal:")
-bst.levelorder(bst.root)
+print("In-order traversal:")
+bst.inorder(bst.root)

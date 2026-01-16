@@ -1,14 +1,12 @@
-# In-order Traversal of a Binary Search Tree in Python
-# Use "python tree_traversals/inorder_traversal.py" to run this code
+# Pre-order Traversal of a Binary Search Tree in Python
+# Use "python tree_data_structures/tree_traversals/preorder_traversal.py" to run this code
 
-# Node class for BST
 class Node:
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
 
-# BST class with insert method
 class BST:
     def __init__(self):
         self.root = None
@@ -30,19 +28,18 @@ class BST:
                     return
                 current = current.right
 
-    # In-order traversal: left → root → right
-    def inorder(self, node):
+    # Pre-order traversal: root → left → right
+    def preorder(self, node):
         if node is None:
             return
-        self.inorder(node.left)
         print(node.value)
-        self.inorder(node.right)
+        self.preorder(node.left)
+        self.preorder(node.right)
 
 
-# Example usage
 bst = BST()
 for value in [10, 5, 15, 3, 7, 12, 18]:
     bst.insert(value)
 
-print("In-order traversal:")
-bst.inorder(bst.root)
+print("Pre-order traversal:")
+bst.preorder(bst.root)

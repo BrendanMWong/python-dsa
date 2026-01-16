@@ -1,5 +1,5 @@
-# Pre-order Traversal of a Binary Search Tree in Python
-# Use "python tree_traversals/preorder_traversal.py" to run this code
+# Post-order Traversal of a Binary Search Tree in Python
+# Use "python tree_data_structures/tree_traversals/postorder_traversal.py" to run this code
 
 class Node:
     def __init__(self, value):
@@ -28,18 +28,18 @@ class BST:
                     return
                 current = current.right
 
-    # Pre-order traversal: root → left → right
-    def preorder(self, node):
+    # Post-order traversal: left → right → root
+    def postorder(self, node):
         if node is None:
             return
+        self.postorder(node.left)
+        self.postorder(node.right)
         print(node.value)
-        self.preorder(node.left)
-        self.preorder(node.right)
 
 
 bst = BST()
 for value in [10, 5, 15, 3, 7, 12, 18]:
     bst.insert(value)
 
-print("Pre-order traversal:")
-bst.preorder(bst.root)
+print("Post-order traversal:")
+bst.postorder(bst.root)

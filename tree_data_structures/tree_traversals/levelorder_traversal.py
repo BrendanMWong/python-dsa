@@ -1,5 +1,7 @@
-# Post-order Traversal of a Binary Search Tree in Python
-# Use "python tree_traversals/postorder_traversal.py" to run this code
+# Level-order (Breadth-First) Traversal of a Binary Search Tree in Python
+# Use "python tree_data_structures/tree_traversals/levelorder_traversal.py" to run this code
+
+from collections import deque
 
 class Node:
     def __init__(self, value):
@@ -28,18 +30,24 @@ class BST:
                     return
                 current = current.right
 
-    # Post-order traversal: left → right → root
-    def postorder(self, node):
+    # Level-order traversal using a queue
+    def levelorder(self, node):
         if node is None:
             return
-        self.postorder(node.left)
-        self.postorder(node.right)
-        print(node.value)
+        queue = deque()
+        queue.append(node)
+        while queue:
+            current = queue.popleft()
+            print(current.value)
+            if current.left:
+                queue.append(current.left)
+            if current.right:
+                queue.append(current.right)
 
 
 bst = BST()
 for value in [10, 5, 15, 3, 7, 12, 18]:
     bst.insert(value)
 
-print("Post-order traversal:")
-bst.postorder(bst.root)
+print("Level-order traversal:")
+bst.levelorder(bst.root)
