@@ -40,6 +40,15 @@ For these tables, operations are based on the intended use of the data structure
 | Merge Sort          | [O(n log n)](#merge-sort-best) | [O(n log n)](#merge-sort-average) | [O(n log n)](#merge-sort-worst) | [O(n)](#merge-sort-space) |
 | Quick Sort          | [O(n log n)](#quick-sort-best) | [O(n log n)](#quick-sort-average) | [O(n²)](#quick-sort-worst) | [O(log n)](#quick-sort-space) |
 
+| Graph Algorithm        | Time Complexity | Space Complexity |
+|------------------------|-----------------|------------------|
+| BFS                   | [O(V + E)](#bfs-complexity) | [O(V)](#bfs-space) |
+| DFS                   | [O(V + E)](#dfs-complexity) | [O(V)](#dfs-space) |
+| Connected Components  | [O(V + E)](#connected-components-complexity) | [O(V)](#connected-components-space) |
+| Cycle Detection       | [O(V + E)](#cycle-detection-complexity) | [O(V)](#cycle-detection-space) |
+| Topological Sort      | [O(V + E)](#topological-sort-complexity) | [O(V)](#topological-sort-space) |
+| Dijkstra’s Algorithm  | [O(E log V)](#dijkstra-complexity) | [O(V)](#dijkstra-space) |
+
 ## Data Structure Time Complexity Explanations
 
 ### Array / List
@@ -179,9 +188,9 @@ For these tables, operations are based on the intended use of the data structure
 <a id="graph-search"></a>
 - **Search (Avg/Worst) O(V + E):** Traversal visits all vertices and edges.
 <a id="graph-insert"></a>
-- **Insert (Avg/Worst) O(1):** Nodes or edges are added directly.
+- **Insert (Avg/Worst) O(1):** Adding a vertex or edge is constant time with adjacency lists.
 <a id="graph-delete"></a>
-- **Delete (Avg/Worst) O(V + E):** Related edges must be removed.
+- **Delete (Avg/Worst) O(V + E):** Removing a vertex requires scanning all edges.
 
 ## Algorithm Time Complexity Explanations
 
@@ -254,3 +263,36 @@ For these tables, operations are based on the intended use of the data structure
 - **Worst O(n²):** Poor pivot choice creates skewed partitions.
 <a id="quick-sort-space"></a>
 - **Space O(log n):** Recursive call stack grows with depth.
+
+### Graph Algorithms
+
+<a id="bfs-complexity"></a>
+- **BFS Time O(V + E):** Each vertex and edge is visited once.
+<a id="bfs-space"></a>
+- **BFS Space O(V):** Queue and visited set store vertices.
+
+<a id="dfs-complexity"></a>
+- **DFS Time O(V + E):** Recursive or stack-based traversal visits all edges.
+<a id="dfs-space"></a>
+- **DFS Space O(V):** Call stack or explicit stack stores vertices.
+
+<a id="connected-components-complexity"></a>
+- **Connected Components Time O(V + E):** DFS/BFS runs once per unvisited component.
+<a id="connected-components-space"></a>
+- **Connected Components Space O(V):** Visited tracking across all vertices.
+
+<a id="cycle-detection-complexity"></a>
+- **Cycle Detection Time O(V + E):** DFS tracks visited and recursion stack.
+<a id="cycle-detection-space"></a>
+- **Cycle Detection Space O(V):** Stack and visited sets.
+
+<a id="topological-sort-complexity"></a>
+- **Topological Sort Time O(V + E):** Each node and edge processed once.
+<a id="topological-sort-space"></a>
+- **Topological Sort Space O(V):** Stack or queue stores vertices.
+
+<a id="dijkstra-complexity"></a>
+- **Dijkstra Time O(E log V):** Priority queue relaxes edges efficiently.
+<a id="dijkstra-space"></a>
+- **Dijkstra Space O(V):** Distance table and priority queue.
+
