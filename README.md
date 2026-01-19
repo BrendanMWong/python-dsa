@@ -2,6 +2,8 @@
 
 A collection of Python implementations of common data structures and algorithms, organized by category for reference.
 
+Leetcode solutions are not runnable in the terminal. However, data structures and algorithm example files are. 
+
 ## Table of Contents
 
 - [Time Complexity Tables](#time-complexity)
