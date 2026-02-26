@@ -39,3 +39,50 @@ class Solution:
                 left += 1
 
         return output
+    
+# Version written without any help
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        output = []
+        # number of rows is m
+        m = len(matrix)
+        # number of cols is n
+        n = len(matrix[0])
+        # init 4 boundaries, are indexes, top starts at 0, right starts at number of columns len(n) - 1
+        # bottom starts at number of rows len(m) - 1, left starts at 0
+        top, right, bottom, left = 0, n - 1, m - 1, 0
+
+        # keep reading until any boundaries cross
+        while top <= bottom and left <= right:
+            # read every element in top row and put in output
+            # range is from left to right + 1
+            for index in range(left, right + 1):
+                output.append(matrix[top][index])
+            # move top down: top + 1
+            top += 1
+
+            # read every element in right col and put in output
+            # range is from top to bottom + 1
+            for index in range(top, bottom + 1):
+                output.append(matrix[index][right])
+            # move right to the left: right - 1
+            right -= 1
+            
+            # check if boundary crossed
+            if top <= bottom:
+                # read every element in bottom row and put in output in reverse order
+                # range is right, left - 1, -1
+                for index in range(right, left - 1, -1):
+                    output.append(matrix[bottom][index])
+                # move bottom upwards: bottom - 1
+                bottom -= 1
+
+            # check if boundary crossed
+            if left <= right:
+                # read every element in left col and put in output in reverse order
+                # range is bottom, top - 1, -1
+                for index in range(bottom, top - 1, -1):
+                    output.append(matrix[index][left])
+                # move left to the right: left + 1
+                left += 1
+        return output
