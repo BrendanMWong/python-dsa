@@ -56,8 +56,14 @@ class TaskManager:
     def load_from_file(self, filename):
         try:
             with open(filename, "r") as file:
-                python_string = json.loads(file)
-                self.tasks = python_string
+                data = json.load(file)
+            # normalize keys to int
+            self.tasks = {int(key): value for key, value in data.items()}
+            # reset next_id
+            if self.tasks:
+                self.next_id = max(self.tasks.keys()) + 1
+            else:
+                self.next_id = 1
             return True
         except:
             return False
@@ -106,3 +112,20 @@ if __name__ == "__main__":
 
     print("Invalid filter test:")
     print(manager.get_tasks_by_status("not_a_status"))
+
+    print("\n=== PART 4: PERSISTENCE ===")
+
+    print("Saving to file...")
+    print(manager.save_to_file("tasks.json"))
+
+    # Create new manager to simulate restart
+    new_manager = TaskManager()
+
+    print("Loading from file...")
+    print(new_manager.load_from_file("tasks.json"))
+
+    print("Loaded tasks:")
+    print(new_manager.tasks)
+
+    print("Next ID after loading:")
+    print(new_manager.next_id)
