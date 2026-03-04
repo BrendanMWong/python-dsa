@@ -68,7 +68,30 @@ class TaskManager:
         except:
             return False
         
+    def search_by_description(self, keyword: str) -> list[dict]: 
+        output = []
+        if not keyword:
+            return output
+        keyword = keyword.lower()
+        for task in self.tasks.values():
+            task_description = task["description"].lower()
+            if keyword in task_description:
+                output.append(task)
+        return output
+    
+    def sort_by_timestamp(self) -> list[dict]:
+        # syntax: sorted(iterable, optional key = call by this function, optional reverse = bool)
+        # self.tasks.values() are all the tasks
+        return sorted(self.tasks.values(), key = self._get_timestamp)
+    
+    # _function: for internal use only
+    def _get_timestamp(self, task: dict) -> float:
+        return task["timestamp"]
+        
 if __name__ == "__main__":
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, "tasks.json")
+
     manager = TaskManager()
 
     print("=== PART 1: CRUD ===")
@@ -116,16 +139,49 @@ if __name__ == "__main__":
     print("\n=== PART 4: PERSISTENCE ===")
 
     print("Saving to file...")
-    print(manager.save_to_file("tasks.json"))
+    print(manager.save_to_file(file_path))
 
     # Create new manager to simulate restart
     new_manager = TaskManager()
 
     print("Loading from file...")
-    print(new_manager.load_from_file("tasks.json"))
+    print(new_manager.load_from_file(file_path))
 
     print("Loaded tasks:")
     print(new_manager.tasks)
 
     print("Next ID after loading:")
     print(new_manager.next_id)
+
+    print("\n=== PART 5: SEARCH ===")
+
+    # Create tasks with distinct text
+    manager.create("Write quarterly report")
+    manager.create("Email project update")
+    manager.create("Write unit tests")
+
+    print("Search for 'write':")
+    print(manager.search_by_description("write"))
+
+    print("Search for 'EMAIL': (case-insensitive test)")
+    print(manager.search_by_description("EMAIL"))
+
+    print("Search with empty string:")
+    print(manager.search_by_description(""))
+
+    print("\n=== PART 6: SORTING ===")
+
+    # Clear and rebuild for clean timestamp order test
+    manager = TaskManager()
+
+    manager.create("First task")
+    time.sleep(1)
+    manager.create("Second task")
+    time.sleep(1)
+    manager.create("Third task")
+
+    print("Tasks sorted by timestamp (oldest first):")
+    sorted_tasks = manager.sort_by_timestamp()
+    for task in sorted_tasks:
+        print(task)
+    
