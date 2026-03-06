@@ -32,7 +32,7 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 
-# O(1) version
+# O(1) version 
 import random
 
 class RandomizedSet:
