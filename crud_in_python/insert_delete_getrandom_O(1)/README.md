@@ -1,9 +1,5 @@
 380. Insert Delete GetRandom O(1)
-Solved
-Medium
-Topics
-premium lock icon
-Companies
+
 Implement the RandomizedSet class:
 
 RandomizedSet() Initializes the RandomizedSet object.
